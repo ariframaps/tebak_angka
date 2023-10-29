@@ -40,18 +40,22 @@ window.addEventListener('load', () => {
             sessionStorage.setItem(sessionAnswerKey, '');
         }
         if (sessionStorage.getItem(sessionUserAttemptsKey) === null) {
-            sessionStorage.setItem(sessionUserAttemptsKey, '');
+            sessionStorage.setItem(sessionUserAttemptsKey, 0);
         }
         if (sessionStorage.getItem(sessionUserIsPlayingKey) === null) {
-            sessionStorage.setItem(sessionUserIsPlayingKey, '');
+            sessionStorage.setItem(sessionUserIsPlayingKey, false);
         }
         if (localStorage.getItem(localTotalVictoryKey) === null) {
-            localStorage.setItem(localTotalVictoryKey, '');
+            localStorage.setItem(localTotalVictoryKey, 0);
         }
         if (localStorage.getItem(localMaximumAttemptsKey) === null) {
-            localStorage.setItem(localMaximumAttemptsKey, '');
+            localStorage.setItem(localMaximumAttemptsKey, 0);
         }
     } else {
         alert('Browser yang anda gunakan tidak mendukung web storage');
     }
+
+    sessionUserAttemptsAmountField.innerText = sessionStorage.getItem(sessionUserAttemptsKey);
+    localTotalVictoryField.innerText = localStorage.getItem(localTotalVictoryKey);
+    localMaximumAttemptField.innerText = localStorage.getItem(localMaximumAttemptsKey);
 });
